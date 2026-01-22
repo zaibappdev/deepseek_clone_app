@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   final String text;
-  final String? iconPath; // optional PNG icon
+  final String? iconPath;
   final VoidCallback onTap;
+  final Color? backgroundColor;
 
   const ElevatedButtonWidget({
     super.key,
     required this.text,
     required this.onTap,
     this.iconPath,
+    this.backgroundColor,
   });
 
   @override
@@ -20,7 +22,7 @@ class ElevatedButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: backgroundColor ?? Colors.white,
           shadowColor: Colors.transparent,
           elevation: 0,
           shape: RoundedRectangleBorder(
