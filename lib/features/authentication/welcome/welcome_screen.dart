@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:deepseek_clone_app/core/common_widgets/elevated_button_widget.dart';
 import 'package:deepseek_clone_app/core/common_widgets/animated_widget.dart';
 import 'package:deepseek_clone_app/features/authentication/welcome/widgets/circular_check_box_widget.dart';
-import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -16,100 +16,77 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
 
-      // Body
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
+
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //  Logo & text
+            const Spacer(),
+
+            // Logo & Text
             FadeIn(
-              delay: 0.5,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/logo/deepseek_logo.png", height: 42),
-                    const SizedBox(height: 6),
-                    Image.asset(
-                      "assets/logo/deepseek_name.png",
-                      height: 42,
-                      color: Colors.blue,
-                    ),
-                  ],
-                ),
+              delay: 0.2,
+              child: Column(
+                children: [
+                  Image.asset("assets/logo/deepseek_logo.png", height: 52),
+                  const SizedBox(height: 8),
+                  Image.asset(
+                    "assets/logo/deepseek_name.png",
+                    height: 42,
+                    color: Colors.blue,
+                  ),
+                ],
               ),
             ),
 
-            /// Auth Forms
-            const SizedBox(height: 20),
+            const Spacer(),
 
-            // Continue with Google
+            // BOTTOM AUTH SECTION
             FadeIn(
-              delay: 0.5,
+              delay: 1.0,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButtonWidget(
                     text: "Continue with Google",
                     iconPath: "assets/icons/google.png",
                     onTap: () {},
                   ),
-                ],
-              ),
-            ),
+                  const SizedBox(height: 12),
 
-            const SizedBox(height: 10),
-
-            // Continue with Password
-            FadeIn(
-              delay: 0.5,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
                   ElevatedButtonWidget(
                     text: "Continue with Password",
                     iconPath: "assets/icons/lock.png",
                     onTap: () {},
                   ),
+                  const SizedBox(height: 12),
+
+                  ElevatedButtonWidget(text: "Sign Up", onTap: () {}),
+                  const SizedBox(height: 18),
+
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircularCheckboxWidget(
+                        initialValue: false,
+                        onChanged: (value) {},
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          "I confirm that I have read and agree to DeepSeek Terms of Use and Privacy Policy.",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 40),
                 ],
               ),
-            ),
-
-            const SizedBox(height: 10),
-
-            // SignUp
-            FadeIn(
-              delay: 0.5,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [ElevatedButtonWidget(text: "Sign up", onTap: () {})],
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // Terms & Conditions
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircularCheckboxWidget(
-                  initialValue: false,
-                  onChanged: (value) {},
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    "I confirm that I have read and agree to DeepSeek Terms of Use and Privacy Policy.",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
             ),
           ],
         ),
