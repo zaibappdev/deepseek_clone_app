@@ -1,4 +1,4 @@
-import 'package:deepseek_clone_app/features/authentication/welcom/welcome_screen.dart';
+import 'package:deepseek_clone_app/features/authentication/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
