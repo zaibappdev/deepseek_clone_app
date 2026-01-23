@@ -5,6 +5,7 @@ class ElevatedButtonWidget extends StatelessWidget {
   final String? iconPath;
   final VoidCallback onTap;
   final Color? backgroundColor;
+  final Color? textColor;
 
   const ElevatedButtonWidget({
     super.key,
@@ -12,6 +13,7 @@ class ElevatedButtonWidget extends StatelessWidget {
     required this.onTap,
     this.iconPath,
     this.backgroundColor,
+    this.textColor,
   });
 
   @override
@@ -43,10 +45,10 @@ class ElevatedButtonWidget extends StatelessWidget {
                 text,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: textColor ?? Colors.black,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),

@@ -1,4 +1,7 @@
 import 'package:go_router/go_router.dart';
+import '../features/authentication/sign_in/sign_in_screen.dart';
+import '../features/authentication/sign_up/sign_up_screen.dart';
+import '../features/authentication/welcome/welcome_screen.dart';
 import 'app_paths.dart';
 import 'navigation_services.dart';
 
@@ -7,11 +10,23 @@ class AppRoutes {
     navigatorKey: NavigationServices.navigatorKey,
     initialLocation: AppPaths.welcome,
     routes: [
-      // GoRoute(
-      //   path: AppPaths.welcome,
-      //   pageBuilder: (context, state) =>
-      //       NavigationServices.instant(const WelcomeScreen(), state),
-      // ),
+      GoRoute(
+        path: AppPaths.welcome,
+        pageBuilder: (context, state) =>
+            NavigationServices.instant(const WelcomeScreen(), state),
+      ),
+
+      GoRoute(
+        path: AppPaths.signIn,
+        pageBuilder: (context, state) =>
+            NavigationServices.slideFromRight(const SignInScreen(), state),
+      ),
+
+      GoRoute(
+        path: AppPaths.signUp,
+        pageBuilder: (context, state) =>
+            NavigationServices.slideFromRight(const SignUpScreen(), state),
+      ),
     ],
   );
 }

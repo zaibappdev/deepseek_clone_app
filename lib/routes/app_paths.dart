@@ -3,8 +3,8 @@ class AppPaths {
   static const String welcome = '/welcome';
 
   // ---------- Authentication ----------
-  static const String login = '/login';
-  static const String signUp = '/signup';
+  static const String signIn = '/sign_in';
+  static const String signUp = '/sign_up';
   static const String forgotPassword = '/forgot_password';
   static const String resetPassword = '/reset_password';
   static const String passwordChanged = '/password_changed';

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:deepseek_clone_app/core/common_widgets/elevated_button_widget.dart';
 import 'package:deepseek_clone_app/core/common_widgets/animated_widget.dart';
 import 'package:deepseek_clone_app/features/authentication/welcome/widgets/circular_check_box_widget.dart';
+import '../../../routes/app_paths.dart';
+import '../../../routes/navigation_services.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -56,11 +58,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ElevatedButtonWidget(
                     text: "Continue with Password",
                     iconPath: "assets/icons/lock.png",
-                    onTap: () {},
+                    onTap: () {
+                      NavigationServices.push(AppPaths.signIn);
+                    },
                   ),
                   const SizedBox(height: 12),
 
-                  ElevatedButtonWidget(text: "Sign Up", onTap: () {}),
+                  ElevatedButtonWidget(text: "Sign Up", onTap: () {
+                    NavigationServices.push(AppPaths.signUp);
+                  }),
                   const SizedBox(height: 18),
 
                   Row(

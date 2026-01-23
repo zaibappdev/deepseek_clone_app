@@ -1,4 +1,4 @@
-import 'package:deepseek_clone_app/features/authentication/welcome/welcome_screen.dart';
+import 'package:deepseek_clone_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'DeepSeek Clone App',
-      home: WelcomeScreen(),
+      routerConfig: AppRoutes.router,
     );
   }
 }
