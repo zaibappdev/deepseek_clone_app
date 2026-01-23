@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../core/common_widgets/app_bar_widget.dart';
+import '../../../core/common_widgets/code_text_field_widget.dart';
 import '../../../core/common_widgets/elevated_button_widget.dart';
+import '../../../core/common_widgets/text_field_widget.dart';
 import '../../../routes/app_paths.dart';
 import '../../../routes/navigation_services.dart';
 
@@ -52,139 +54,49 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(height: 40),
 
             // Email
-            Container(
-              height: 52,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xfff3f3f3),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: Center(
-                child: TextField(
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
-
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Email",
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
-                  ),
-                ),
-              ),
-            ),
+            TextFieldWidget(hintText: "Email", controller: emailController),
 
             const SizedBox(height: 16),
 
             // Password
-            Container(
-              height: 52,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xfff3f3f3),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: TextField(
-                controller: passwordController,
-                obscureText: _obscurePassword,
-                style: const TextStyle(fontSize: 16, color: Colors.black),
-                textAlignVertical: TextAlignVertical.center,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Password",
-                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 16),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      Icons.visibility_off,
-                      color: Colors.grey,
-                      size: 20,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
-                  ),
-                ),
-              ),
+            TextFieldWidget(
+              hintText: "Password",
+              controller: passwordController,
+              obscureText: _obscurePassword,
+              suffixIcon: _obscurePassword
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+              onSuffixTap: () {
+                setState(() {
+                  _obscurePassword = !_obscurePassword;
+                });
+              },
             ),
 
             const SizedBox(height: 16),
 
             // Confirm Password
-            Container(
-              height: 52,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xfff3f3f3),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: TextField(
-                controller: confirmController,
-                obscureText: _obscurePassword,
-                style: const TextStyle(fontSize: 16, color: Colors.black),
-                textAlignVertical: TextAlignVertical.center,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Confirm Password",
-                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 16),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.grey,
-                      size: 20,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
-                  ),
-                ),
-              ),
+            TextFieldWidget(
+              hintText: "Confirm Password",
+              controller: confirmController,
+              obscureText: _obscurePassword,
+              suffixIcon: _obscurePassword
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+              onSuffixTap: () {
+                setState(() {
+                  _obscurePassword = !_obscurePassword;
+                });
+              },
             ),
 
             const SizedBox(height: 16),
 
             // Code
-            Container(
-              height: 52,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xfff3f3f3),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: codeController,
-                      style: const TextStyle(fontSize: 16, color: Colors.black),
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Code",
-                        hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
-                      ),
-                    ),
-                  ),
-                  // vertical line
-                  Container(
-                    height: 20,
-                    width: 2,
-                    color: Colors.grey.shade400,
-                    margin: const EdgeInsets.symmetric(horizontal: 0),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Send code",
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                  ),
-                ],
-              ),
+            CodeTextFieldWidget(
+              controller: codeController,
+              hintText: "Code",
+              onSendCode: () {},
             ),
 
             const SizedBox(height: 30),

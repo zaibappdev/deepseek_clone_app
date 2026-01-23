@@ -1,6 +1,7 @@
 import 'package:deepseek_clone_app/core/common_widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../core/common_widgets/elevated_button_widget.dart';
+import '../../../core/common_widgets/text_field_widget.dart';
 import '../../../routes/app_paths.dart';
 import '../../../routes/navigation_services.dart';
 
@@ -51,61 +52,26 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(height: 40),
 
             // Email
-            Container(
-              height: 52,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xfff3f3f3),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: Center(
-                child: TextField(
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  style: const TextStyle(fontSize: 16, color: Colors.black),
-
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Email / +92 Phone number",
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
-                  ),
-                ),
-              ),
+            TextFieldWidget(
+              hintText: "Email / +92 Phone number",
+              controller: emailController,
             ),
 
             const SizedBox(height: 16),
 
             // Password
-            Container(
-              height: 52,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xfff3f3f3),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: TextField(
-                controller: passwordController,
-                obscureText: _obscurePassword,
-                style: const TextStyle(fontSize: 16, color: Colors.black),
-                textAlignVertical: TextAlignVertical.center,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Password",
-                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 16),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      Icons.visibility_off,
-                      color: Colors.grey,
-                      size: 20,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
-                  ),
-                ),
-              ),
+            TextFieldWidget(
+              hintText: "Password",
+              controller: passwordController,
+              obscureText: _obscurePassword,
+              suffixIcon: _obscurePassword
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+              onSuffixTap: () {
+                setState(() {
+                  _obscurePassword = !_obscurePassword;
+                });
+              },
             ),
 
             TextButton(
