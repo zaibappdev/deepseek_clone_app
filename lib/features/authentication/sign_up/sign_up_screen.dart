@@ -106,7 +106,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               backgroundColor: Colors.blue,
               text: "Sign up",
               textColor: Colors.white,
-              onTap: () {},
+              onTap: () {
+                NavigationServices.push(AppPaths.signIn);
+              },
             ),
           ],
         ),

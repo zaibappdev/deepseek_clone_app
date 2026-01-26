@@ -1,3 +1,4 @@
+import 'package:deepseek_clone_app/features/home/home_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../features/authentication/sign_in/sign_in_screen.dart';
 import '../features/authentication/sign_up/sign_up_screen.dart';
@@ -13,7 +14,7 @@ class AppRoutes {
       GoRoute(
         path: AppPaths.welcome,
         pageBuilder: (context, state) =>
-            NavigationServices.instant(const WelcomeScreen(), state),
+            NavigationServices.slideFromRight(const WelcomeScreen(), state),
       ),
 
       GoRoute(
@@ -26,6 +27,12 @@ class AppRoutes {
         path: AppPaths.signUp,
         pageBuilder: (context, state) =>
             NavigationServices.slideFromRight(const SignUpScreen(), state),
+      ),
+
+      GoRoute(
+        path: AppPaths.home,
+        pageBuilder: (context, state) =>
+            NavigationServices.slideFromRight(const HomeScreen(), state),
       ),
     ],
   );

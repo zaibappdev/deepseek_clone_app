@@ -93,7 +93,9 @@ class _SignInScreenState extends State<SignInScreen> {
               backgroundColor: Colors.blue,
               text: "Log in",
               textColor: Colors.white,
-              onTap: () {},
+              onTap: () {
+                NavigationServices.push(AppPaths.home);
+              },
             ),
           ],
         ),
