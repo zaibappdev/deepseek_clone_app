@@ -149,38 +149,32 @@ class _HomeScreenState extends State<HomeScreen>
               final drag = controller.value;
 
               // Close keyboard if page 1 opens
-              if (drag > 0) {
-                FocusScope.of(context).unfocus();
-              }
+              if (drag > 0) FocusScope.of(context).unfocus();
 
               return Transform.translate(
                 offset: Offset(maxSlide * drag, 0),
                 child: Stack(
                   children: [
-                    // PAGE 2 CONTENT
+                    // PAGE 2 CONTENT (full height)
                     Container(
                       width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
                       color: Colors.white,
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 100),
-                            const Text(
-                              "Page 2 (Front)",
-                              style: TextStyle(fontSize: 30),
-                            ),
-                            const Spacer(),
-                          ],
+                      child: const Center(
+                        child: Text(
+                          "Page 2 (Front)",
+                          style: TextStyle(fontSize: 30),
                         ),
                       ),
                     ),
 
-                    // TEXT FIELD + BOTTOM ROW
-                    Positioned(
-                      bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+                    // TEXT FIELD + BOTTOM ROW (fixed at bottom)
+                    AnimatedPositioned(
+                      duration: const Duration(milliseconds: 250),
+                      curve: Curves.easeOut,
                       left: 16,
                       right: 16,
+                      bottom: MediaQuery.of(context).viewInsets.bottom + 10,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -193,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen>
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 12,
-                            vertical: 8,
+                            vertical: 5,
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -219,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  // Left Side: 2 small containers aligned left
+                                  // Left Side 2 Containers
                                   Row(
                                     children: [
                                       Container(
@@ -282,24 +276,24 @@ class _HomeScreenState extends State<HomeScreen>
                                     ],
                                   ),
 
-                                  // Right Side: 2 circular icons
+                                  // Right Side 2 Circular Icons
                                   Row(
                                     children: [
                                       Container(
-                                        height: 36,
-                                        width: 36,
+                                        height: 30,
+                                        width: 30,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
                                             color: Colors.black,
                                           ),
                                         ),
-                                        child: const Icon(Icons.send, size: 18),
+                                        child: const Icon(Icons.send, size: 16),
                                       ),
                                       const SizedBox(width: 8),
                                       Container(
-                                        height: 36,
-                                        width: 36,
+                                        height: 30,
+                                        width: 30,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
@@ -308,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         ),
                                         child: const Icon(
                                           Icons.attachment,
-                                          size: 18,
+                                          size: 16,
                                         ),
                                       ),
                                     ],
