@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen>
             builder: (context, _) {
               final drag = controller.value;
 
-              // Close page keyboard when open page 1
+              // Close keyboard if page 1 opens
               if (drag > 0) {
                 FocusScope.of(context).unfocus();
               }
@@ -176,13 +176,12 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
 
-                    // Text Field
+                    // TEXT FIELD + BOTTOM ROW
                     Positioned(
                       bottom: MediaQuery.of(context).viewInsets.bottom + 10,
                       left: 16,
                       right: 16,
                       child: Container(
-                        height: 80,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(24),
@@ -192,20 +191,131 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: TextField(
-                            maxLines: 6,
-                            minLines: 1,
-                            keyboardType: TextInputType.multiline,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Type something...",
-                              hintStyle: TextStyle(color: Colors.grey),
-                            ),
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                            ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              // TextField
+                              TextField(
+                                maxLines: 6,
+                                minLines: 1,
+                                keyboardType: TextInputType.multiline,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Type a message or hold to speak",
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                ),
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+
+                              // Bottom Row
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  // Left Side: 2 small containers aligned left
+                                  Row(
+                                    children: [
+                                      Container(
+                                        height: 28,
+                                        width: 68,
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 4,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(
+                                            14,
+                                          ),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: const [
+                                            Icon(Icons.camera_alt, size: 16),
+                                            SizedBox(width: 4),
+                                            Text(
+                                              "Think",
+                                              style: TextStyle(fontSize: 12),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        height: 28,
+                                        width: 68,
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 4,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(
+                                            14,
+                                          ),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: const [
+                                            Icon(Icons.mic, size: 16),
+                                            SizedBox(width: 4),
+                                            Text(
+                                              "Search",
+                                              style: TextStyle(fontSize: 12),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  // Right Side: 2 circular icons
+                                  Row(
+                                    children: [
+                                      Container(
+                                        height: 36,
+                                        width: 36,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                        child: const Icon(Icons.send, size: 18),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        height: 36,
+                                        width: 36,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                        child: const Icon(
+                                          Icons.attachment,
+                                          size: 18,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
