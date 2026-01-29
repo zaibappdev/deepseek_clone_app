@@ -19,7 +19,6 @@ class _HomeScreenState extends State<HomeScreen>
     controller = AnimationController(
       vsync: this,
       value: 0.0,
-      // closed by default
       lowerBound: 0.0,
       upperBound: 1.0,
       duration: const Duration(milliseconds: 300),
@@ -32,11 +31,8 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
-  // Close Page 1
   void closePage1() {
-    if (controller.value > 0.0) {
-      controller.animateTo(0.0, curve: Curves.easeOutCubic);
-    }
+    controller.animateTo(0.0, curve: Curves.easeOutCubic);
   }
 
   @override
@@ -44,43 +40,62 @@ class _HomeScreenState extends State<HomeScreen>
     maxSlide = MediaQuery.of(context).size.width * 0.65;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // -----------------
-          // PAGE 1 (BEHIND)
-          // -----------------
+          // ==========================
+          // PAGE 1 (Background)
+          // ==========================
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
               final drag = controller.value;
+
+              // PAGE 1: Slide from left → right when opening
+              // And right → left when closing
               return Transform.translate(
-                offset: Offset(maxSlide * drag, 0),
+                offset: Offset(-maxSlide + (maxSlide * drag), 0),
                 child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
                   color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      "Page 1 (Behind)",
-                      style: TextStyle(fontSize: 30),
-                    ),
+                  padding: const EdgeInsets.only(top: 40, left: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Item 1",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Text("Item 2", style: TextStyle(fontSize: 24)),
+                      SizedBox(height: 20),
+                      Text("Item 3", style: TextStyle(fontSize: 24)),
+                      SizedBox(height: 20),
+                      Text("Item 4", style: TextStyle(fontSize: 24)),
+                    ],
                   ),
                 ),
               );
             },
           ),
 
-          // -----------------
-          // PAGE 2 (FRONT)
-          // -----------------
+          // ==========================
+          // PAGE 2 (Front)
+          // ==========================
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
               final drag = controller.value;
 
+              // PAGE 2: Slide from right → left when opening
               return Transform.translate(
                 offset: Offset(maxSlide * drag, 0),
                 child: Stack(
                   children: [
-                    // Page 2 main container
                     Container(
                       width: MediaQuery.of(context).size.width,
                       color: Colors.white,
@@ -92,13 +107,13 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
 
-                    // Shadow only on Page 2
+                    // Shadow grows with drag
                     Opacity(
                       opacity: drag,
-                      child: Container(color: Colors.black.withOpacity(0.4)),
+                      child: Container(color: Colors.black12),
                     ),
 
-                    // Transparent GestureDetector to catch taps
+                    // Tap to close
                     Positioned.fill(
                       child: GestureDetector(
                         behavior: HitTestBehavior.translucent,
@@ -111,9 +126,9 @@ class _HomeScreenState extends State<HomeScreen>
             },
           ),
 
-          // -----------------
-          // Drag Gesture (both pages)
-          // -----------------
+          // ==========================
+          // DRAG GESTURE
+          // ==========================
           GestureDetector(
             behavior: HitTestBehavior.translucent,
             onHorizontalDragUpdate: (details) {
@@ -124,15 +139,12 @@ class _HomeScreenState extends State<HomeScreen>
               final velocity = details.primaryVelocity ?? 0;
 
               if (velocity.abs() >= 300) {
-                // fast swipe fling
                 controller.fling(velocity: velocity.sign);
               } else {
-                // slow drag open/close
-                if (controller.value > 0.5) {
-                  controller.animateTo(1.0, curve: Curves.easeOutCubic);
-                } else {
-                  controller.animateTo(0.0, curve: Curves.easeOutCubic);
-                }
+                controller.animateTo(
+                  controller.value > 0.5 ? 1.0 : 0.0,
+                  curve: Curves.easeOutCubic,
+                );
               }
             },
           ),
