@@ -43,39 +43,340 @@ class _HomeScreenState extends State<HomeScreen>
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // ==========================
           // PAGE 1 (Background)
-          // ==========================
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
               final drag = controller.value;
 
-              // PAGE 1: Slide from left → right when opening
-              // And right → left when closing
               return Transform.translate(
                 offset: Offset(-maxSlide + (maxSlide * drag), 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   color: Colors.white,
-                  padding: const EdgeInsets.only(top: 40, left: 20),
+                  padding: const EdgeInsets.only(top: 40, left: 8, right: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Item 1",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                    children: [
+                      // --------- SCROLLABLE TEXT LIST ----------
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                "Today",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Tomorrow",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Nav 2025",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              Text(
+                                "Item 1",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Text("Item 2", style: TextStyle(fontSize: 24)),
-                      SizedBox(height: 20),
-                      Text("Item 3", style: TextStyle(fontSize: 24)),
-                      SizedBox(height: 20),
-                      Text("Item 4", style: TextStyle(fontSize: 24)),
+
+                      // --------- FIXED BOTTOM ROW ----------
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          height: 80,
+                          color: Colors.white,
+                          child: Row(
+                            children: const [
+                              CircleAvatar(
+                                radius: 16,
+                                backgroundColor: Colors.blue,
+                                child: Icon(Icons.person, color: Colors.white),
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "you*****673@gmail.com",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -83,15 +384,12 @@ class _HomeScreenState extends State<HomeScreen>
             },
           ),
 
-          // ==========================
           // PAGE 2 (Front)
-          // ==========================
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
               final drag = controller.value;
 
-              // PAGE 2: Slide from right → left when opening
               return Transform.translate(
                 offset: Offset(maxSlide * drag, 0),
                 child: Stack(
@@ -99,10 +397,187 @@ class _HomeScreenState extends State<HomeScreen>
                     Container(
                       width: MediaQuery.of(context).size.width,
                       color: Colors.white,
-                      child: const Center(
-                        child: Text(
-                          "Page 2 (Front)",
-                          style: TextStyle(fontSize: 30),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 100),
+                            const Text(
+                              "Page 2 (Front)",
+                              style: TextStyle(fontSize: 30),
+                            ),
+
+                            const Spacer(),
+
+                            // --------- BOTTOM NAV BAR (INLINE) ----------
+                            SizedBox(
+                              height: 120,
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  // Main bottom bar
+                                  Container(
+                                    height: 70,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: const BorderRadius.vertical(
+                                        top: Radius.circular(24),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.1),
+                                          blurRadius: 10,
+                                          offset: const Offset(0, -2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        // Think Button
+                                        InkWell(
+                                          onTap: () {
+                                            print('Think tapped');
+                                          },
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 16,
+                                              vertical: 8,
+                                            ),
+                                            child: Row(
+                                              children: const [
+                                                Icon(
+                                                  Icons.auto_awesome,
+                                                  size: 22,
+                                                ),
+                                                SizedBox(width: 8),
+                                                Text(
+                                                  'Think',
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+
+                                        // Search Button
+                                        InkWell(
+                                          onTap: () {
+                                            print('Search tapped');
+                                          },
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 16,
+                                              vertical: 8,
+                                            ),
+                                            child: Row(
+                                              children: const [
+                                                Icon(Icons.search, size: 22),
+                                                SizedBox(width: 8),
+                                                Text(
+                                                  'Search',
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+
+                                        const SizedBox(width: 80),
+                                        // Space for center button
+
+                                        // Plus Button
+                                        InkWell(
+                                          onTap: () {
+                                            print('Add tapped');
+                                          },
+                                          customBorder: const CircleBorder(),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(12),
+                                            child: Icon(Icons.add, size: 26),
+                                          ),
+                                        ),
+
+                                        // Voice Button
+                                        InkWell(
+                                          onTap: () {
+                                            print('Voice tapped');
+                                          },
+                                          customBorder: const CircleBorder(),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(12),
+                                            child: Icon(
+                                              Icons.graphic_eq_rounded,
+                                              size: 26,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  // Center floating button
+                                  Positioned(
+                                    bottom: 45,
+                                    child: Container(
+                                      width: 65,
+                                      height: 65,
+                                      decoration: BoxDecoration(
+                                        gradient: const LinearGradient(
+                                          colors: [
+                                            Color(0xFFE8B4F7),
+                                            Color(0xFFB4A4F7),
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        shape: BoxShape.circle,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.purple.withOpacity(
+                                              0.3,
+                                            ),
+                                            blurRadius: 15,
+                                            offset: const Offset(0, 5),
+                                          ),
+                                        ],
+                                      ),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        child: InkWell(
+                                          onTap: () {
+                                            print('Center button tapped');
+                                          },
+                                          customBorder: const CircleBorder(),
+                                          child: const Center(
+                                            child: Icon(
+                                              Icons.psychology_outlined,
+                                              color: Colors.white,
+                                              size: 30,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -126,9 +601,7 @@ class _HomeScreenState extends State<HomeScreen>
             },
           ),
 
-          // ==========================
           // DRAG GESTURE
-          // ==========================
           GestureDetector(
             behavior: HitTestBehavior.translucent,
             onHorizontalDragUpdate: (details) {
