@@ -105,248 +105,6 @@ class _HomeScreenState extends State<HomeScreen>
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Nav 2025",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -384,16 +142,22 @@ class _HomeScreenState extends State<HomeScreen>
             },
           ),
 
-          // PAGE 2 (Front)
+          // Page 2
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
               final drag = controller.value;
 
+              // Close page keyboard when open page 1
+              if (drag > 0) {
+                FocusScope.of(context).unfocus();
+              }
+
               return Transform.translate(
                 offset: Offset(maxSlide * drag, 0),
                 child: Stack(
                   children: [
+                    // PAGE 2 CONTENT
                     Container(
                       width: MediaQuery.of(context).size.width,
                       color: Colors.white,
@@ -406,202 +170,63 @@ class _HomeScreenState extends State<HomeScreen>
                               "Page 2 (Front)",
                               style: TextStyle(fontSize: 30),
                             ),
-
                             const Spacer(),
-
-                            // --------- BOTTOM NAV BAR (INLINE) ----------
-                            SizedBox(
-                              height: 120,
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                alignment: Alignment.bottomCenter,
-                                children: [
-                                  // Main bottom bar
-                                  Container(
-                                    height: 70,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: const BorderRadius.vertical(
-                                        top: Radius.circular(24),
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withOpacity(0.1),
-                                          blurRadius: 10,
-                                          offset: const Offset(0, -2),
-                                        ),
-                                      ],
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        // Think Button
-                                        InkWell(
-                                          onTap: () {
-                                            print('Think tapped');
-                                          },
-                                          borderRadius: BorderRadius.circular(
-                                            12,
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                              vertical: 8,
-                                            ),
-                                            child: Row(
-                                              children: const [
-                                                Icon(
-                                                  Icons.auto_awesome,
-                                                  size: 22,
-                                                ),
-                                                SizedBox(width: 8),
-                                                Text(
-                                                  'Think',
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-
-                                        // Search Button
-                                        InkWell(
-                                          onTap: () {
-                                            print('Search tapped');
-                                          },
-                                          borderRadius: BorderRadius.circular(
-                                            12,
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                              vertical: 8,
-                                            ),
-                                            child: Row(
-                                              children: const [
-                                                Icon(Icons.search, size: 22),
-                                                SizedBox(width: 8),
-                                                Text(
-                                                  'Search',
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-
-                                        const SizedBox(width: 80),
-                                        // Space for center button
-
-                                        // Plus Button
-                                        InkWell(
-                                          onTap: () {
-                                            print('Add tapped');
-                                          },
-                                          customBorder: const CircleBorder(),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(12),
-                                            child: Icon(Icons.add, size: 26),
-                                          ),
-                                        ),
-
-                                        // Voice Button
-                                        InkWell(
-                                          onTap: () {
-                                            print('Voice tapped');
-                                          },
-                                          customBorder: const CircleBorder(),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(12),
-                                            child: Icon(
-                                              Icons.graphic_eq_rounded,
-                                              size: 26,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
-                                  // Center floating button
-                                  Positioned(
-                                    bottom: 45,
-                                    child: Container(
-                                      width: 65,
-                                      height: 65,
-                                      decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
-                                          colors: [
-                                            Color(0xFFE8B4F7),
-                                            Color(0xFFB4A4F7),
-                                          ],
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                        ),
-                                        shape: BoxShape.circle,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.purple.withOpacity(
-                                              0.3,
-                                            ),
-                                            blurRadius: 15,
-                                            offset: const Offset(0, 5),
-                                          ),
-                                        ],
-                                      ),
-                                      child: Material(
-                                        color: Colors.transparent,
-                                        child: InkWell(
-                                          onTap: () {
-                                            print('Center button tapped');
-                                          },
-                                          customBorder: const CircleBorder(),
-                                          child: const Center(
-                                            child: Icon(
-                                              Icons.psychology_outlined,
-                                              color: Colors.white,
-                                              size: 30,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
                           ],
                         ),
                       ),
                     ),
 
-                    // Shadow grows with drag
-                    Opacity(
-                      opacity: drag,
-                      child: Container(color: Colors.black12),
-                    ),
-
-                    // Tap to close
-                    Positioned.fill(
-                      child: GestureDetector(
-                        behavior: HitTestBehavior.translucent,
-                        onTap: closePage1,
+                    // Text Field
+                    Positioned(
+                      bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+                      left: 16,
+                      right: 16,
+                      child: Container(
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(24),
+                          border: Border.all(
+                            color: Colors.grey.shade300,
+                            width: 1.5,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: TextField(
+                            maxLines: 6,
+                            minLines: 1,
+                            keyboardType: TextInputType.multiline,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Type something...",
+                              hintStyle: TextStyle(color: Colors.grey),
+                            ),
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
+
+                    // SHADOW + TAP-TO-CLOSE (ENABLED ONLY WHEN DRAG > 0)
+                    if (drag > 0)
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: closePage1,
+                        child: Opacity(
+                          opacity: drag,
+                          child: Container(color: Colors.black12),
+                        ),
+                      ),
                   ],
                 ),
               );
             },
           ),
 
-          // DRAG GESTURE
           GestureDetector(
             behavior: HitTestBehavior.translucent,
             onHorizontalDragUpdate: (details) {
