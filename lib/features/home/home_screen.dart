@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen>
                       color: Colors.white,
                     ),
 
-                    // -------- FIXED TOP APPBAR ON PAGE 2 --------
+                    // Fixed Top App Bar Page 2
                     Container(
                       height: 60,
                       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -199,11 +199,25 @@ class _HomeScreenState extends State<HomeScreen>
                     // -------- BODY CONTENT (USING PADDING FOR TOP APPBAR) --------
                     Positioned.fill(
                       top: 60,
-                      child: Center(
-                        child: Text(
-                          "Page 2 (Front)",
-                          style: TextStyle(fontSize: 30),
-                        ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/logo/deepseek_logo.png",
+                            height: 42,
+                          ),
+
+                          const SizedBox(height: 10),
+
+                          Text(
+                            "How can I help you?",
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 
