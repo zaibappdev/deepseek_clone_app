@@ -9,14 +9,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  late final AnimationController controller;
+  late final AnimationController controller; // ← animation controller
   double maxSlide = 0;
+  int selectedIndex = -1; // ← selected item index
+  final double sidePadding = 10; // ← side padding
 
   @override
   void initState() {
     super.initState();
-
     controller = AnimationController(
+      // ← init animation controller
       vsync: this,
       value: 0.0,
       lowerBound: 0.0,
@@ -27,45 +29,50 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
-    controller.dispose();
+    controller.dispose(); // ← dispose controller
     super.dispose();
   }
 
   void closePage1() {
-    controller.animateTo(0.0, curve: Curves.easeOutCubic);
+    controller.animateTo(0.0, curve: Curves.easeOutCubic); // ← close page 1
   }
 
   @override
   Widget build(BuildContext context) {
-    maxSlide = MediaQuery.of(context).size.width * 0.65;
+    maxSlide =
+        MediaQuery.of(context).size.width * 0.65; // ← calculate max slide
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white, // ← scaffold background
       body: Stack(
         children: [
-          // PAGE 1 (Background)
+          // ← PAGE 1
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
-              final drag = controller.value;
-
+              final drag = controller.value; // ← drag value
               return Transform.translate(
                 offset: Offset(-maxSlide + (maxSlide * drag), 0),
+                // ← slide animation
                 child: Container(
                   width: MediaQuery.of(context).size.width,
+                  // ← full width
                   height: MediaQuery.of(context).size.height,
+                  // ← full height
                   color: Colors.white,
+                  // ← background color
                   padding: const EdgeInsets.only(top: 40, left: 8, right: 20),
+                  // ← padding
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start, // ← alignment
                     children: [
-                      // --------- SCROLLABLE TEXT LIST ----------
                       Expanded(
                         child: SingleChildScrollView(
+                          // ← scrollable content
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
+                            children: [
+                              const Text(
                                 "Today",
                                 style: TextStyle(
                                   fontSize: 17,
@@ -73,31 +80,84 @@ class _HomeScreenState extends State<HomeScreen>
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              SizedBox(height: 8),
+                              // ← section title
+                              const SizedBox(height: 8),
 
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                              // ← spacing
+                              GestureDetector(
+                                // ← ITEM 1
+                                behavior: HitTestBehavior.opaque,
+                                onTap: () {
+                                  setState(() {
+                                    selectedIndex = 0;
+                                  });
+                                  controller.animateTo(
+                                    0.0,
+                                    curve: Curves.easeOutCubic,
+                                  );
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 10,
+                                    horizontal: 10,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: selectedIndex == 0
+                                        ? Colors.blue.withOpacity(0.10)
+                                        : Colors.transparent,
+                                    borderRadius: BorderRadius.circular(24),
+                                  ),
+                                  child: const Text(
+                                    "Item 1",
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
 
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
 
-                              Text(
-                                "Item 1",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                              // ← spacing
+                              GestureDetector(
+                                // ← ITEM 2
+                                behavior: HitTestBehavior.opaque,
+                                onTap: () {
+                                  setState(() {
+                                    selectedIndex = 1;
+                                  });
+                                  controller.animateTo(
+                                    0.0,
+                                    curve: Curves.easeOutCubic,
+                                  );
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 10,
+                                    horizontal: 10,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: selectedIndex == 1
+                                        ? Colors.blue.withOpacity(0.10)
+                                        : Colors.transparent,
+                                    borderRadius: BorderRadius.circular(24),
+                                  ),
+                                  child: const Text(
+                                    "Item 2",
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
 
-                              SizedBox(height: 8),
-
-                              Text(
+                              const SizedBox(height: 8),
+                              // ← spacing
+                              const Text(
                                 "Tomorrow",
                                 style: TextStyle(
                                   fontSize: 17,
@@ -105,13 +165,50 @@ class _HomeScreenState extends State<HomeScreen>
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
+                              // ← section title
+                              const SizedBox(height: 8),
+
+                              // ← spacing
+                              GestureDetector(
+                                // ← ITEM 3
+                                behavior: HitTestBehavior.opaque,
+                                onTap: () {
+                                  setState(() {
+                                    selectedIndex = 2;
+                                  });
+                                  controller.animateTo(
+                                    0.0,
+                                    curve: Curves.easeOutCubic,
+                                  );
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 10,
+                                    horizontal: 10,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: selectedIndex == 2
+                                        ? Colors.blue.withOpacity(0.10)
+                                        : Colors.transparent,
+                                    borderRadius: BorderRadius.circular(24),
+                                  ),
+                                  child: const Text(
+                                    "Item 3",
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
 
-                      // --------- FIXED BOTTOM ROW ----------
                       GestureDetector(
+                        // ← bottom fixed row
                         onTap: () {},
                         child: Container(
                           height: 80,
@@ -123,6 +220,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 backgroundColor: Colors.blue,
                                 child: Icon(Icons.person, color: Colors.white),
                               ),
+                              // ← avatar
                               SizedBox(width: 10),
                               Text(
                                 "you*****673@gmail.com",
@@ -131,6 +229,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   color: Colors.grey,
                                 ),
                               ),
+                              // ← email
                             ],
                           ),
                         ),
@@ -142,27 +241,26 @@ class _HomeScreenState extends State<HomeScreen>
             },
           ),
 
-          // Page 2
+          // ← PAGE 2
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
-              final drag = controller.value;
-
-              if (drag > 0) FocusScope.of(context).unfocus();
+              final drag = controller.value; // ← drag value
+              if (drag > 0)
+                FocusScope.of(context).unfocus(); // ← close keyboard
 
               return Transform.translate(
-                offset: Offset(maxSlide * drag, 0),
+                offset: Offset(maxSlide * drag, 0), // ← slide animation
                 child: Stack(
                   children: [
-                    // FULL PAGE CONTENT
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       color: Colors.white,
-                    ),
+                    ), // ← full page container
 
-                    // Fixed Top App Bar Page 2
                     Container(
+                      // ← top app bar
                       height: 60,
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       decoration: const BoxDecoration(color: Colors.white),
@@ -170,8 +268,8 @@ class _HomeScreenState extends State<HomeScreen>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          // MENU ICON → OPEN PAGE 1
                           GestureDetector(
+                            // ← menu icon
                             onTap: () {
                               controller.animateTo(
                                 1.0,
@@ -180,8 +278,6 @@ class _HomeScreenState extends State<HomeScreen>
                             },
                             child: const Icon(Icons.menu, size: 26),
                           ),
-
-                          // CENTER TITLE
                           const Text(
                             "New Chat",
                             style: TextStyle(
@@ -189,15 +285,15 @@ class _HomeScreenState extends State<HomeScreen>
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-
-                          // NEW CHAT (ACTION ICON)
+                          // ← title
                           const Icon(Icons.add_circle_outline, size: 26),
+                          // ← action icon
                         ],
                       ),
                     ),
 
-                    // -------- BODY CONTENT (USING PADDING FOR TOP APPBAR) --------
                     Positioned.fill(
+                      // ← body content
                       top: 60,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -206,10 +302,9 @@ class _HomeScreenState extends State<HomeScreen>
                             "assets/logo/deepseek_logo.png",
                             height: 42,
                           ),
-
+                          // ← logo
                           const SizedBox(height: 10),
-
-                          Text(
+                          const Text(
                             "How can I help you?",
                             style: TextStyle(
                               fontSize: 30,
@@ -217,12 +312,13 @@ class _HomeScreenState extends State<HomeScreen>
                               fontWeight: FontWeight.w600,
                             ),
                           ),
+                          // ← heading
                         ],
                       ),
                     ),
 
-                    // -------- TEXT FIELD + BOTTOM INPUT BAR --------
                     AnimatedPositioned(
+                      // ← bottom input bar
                       duration: const Duration(milliseconds: 250),
                       curve: Curves.easeOut,
                       left: 16,
@@ -245,28 +341,29 @@ class _HomeScreenState extends State<HomeScreen>
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              TextField(
+                              const TextField(
                                 maxLines: 6,
                                 minLines: 1,
                                 keyboardType: TextInputType.multiline,
-                                decoration: const InputDecoration(
+                                decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: "Type a message or hold to speak",
                                   hintStyle: TextStyle(color: Colors.grey),
                                 ),
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.black,
                                 ),
                               ),
-
                               Row(
+                                // ← input actions
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
                                       Container(
+                                        // ← camera button
                                         height: 28,
                                         width: 68,
                                         decoration: BoxDecoration(
@@ -294,6 +391,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       ),
                                       const SizedBox(width: 8),
                                       Container(
+                                        // ← mic button
                                         height: 28,
                                         width: 68,
                                         decoration: BoxDecoration(
@@ -321,10 +419,10 @@ class _HomeScreenState extends State<HomeScreen>
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: [
                                       Container(
+                                        // ← send button
                                         height: 30,
                                         width: 30,
                                         decoration: BoxDecoration(
@@ -337,6 +435,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       ),
                                       const SizedBox(width: 8),
                                       Container(
+                                        // ← attachment button
                                         height: 30,
                                         width: 30,
                                         decoration: BoxDecoration(
@@ -360,8 +459,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
 
-                    // SHADOW WHEN PAGE 1 OPEN
-                    if (drag > 0)
+                    if (drag > 0) // ← shadow overlay
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
                         onTap: closePage1,
@@ -377,6 +475,7 @@ class _HomeScreenState extends State<HomeScreen>
           ),
 
           GestureDetector(
+            // ← horizontal drag
             behavior: HitTestBehavior.translucent,
             onHorizontalDragUpdate: (details) {
               controller.value += details.delta.dx / maxSlide;
@@ -384,7 +483,6 @@ class _HomeScreenState extends State<HomeScreen>
             },
             onHorizontalDragEnd: (details) {
               final velocity = details.primaryVelocity ?? 0;
-
               if (velocity.abs() >= 300) {
                 controller.fling(velocity: velocity.sign);
               } else {
