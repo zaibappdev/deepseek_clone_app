@@ -148,19 +148,58 @@ class _HomeScreenState extends State<HomeScreen>
             builder: (context, _) {
               final drag = controller.value;
 
-              // Close keyboard if page 1 opens
               if (drag > 0) FocusScope.of(context).unfocus();
 
               return Transform.translate(
                 offset: Offset(maxSlide * drag, 0),
                 child: Stack(
                   children: [
-                    // PAGE 2 CONTENT (full height)
+                    // FULL PAGE CONTENT
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       color: Colors.white,
-                      child: const Center(
+                    ),
+
+                    // -------- FIXED TOP APPBAR ON PAGE 2 --------
+                    Container(
+                      height: 60,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      decoration: const BoxDecoration(color: Colors.white),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          // MENU ICON → OPEN PAGE 1
+                          GestureDetector(
+                            onTap: () {
+                              controller.animateTo(
+                                1.0,
+                                curve: Curves.easeOutCubic,
+                              );
+                            },
+                            child: const Icon(Icons.menu, size: 26),
+                          ),
+
+                          // CENTER TITLE
+                          const Text(
+                            "New Chat",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+
+                          // NEW CHAT (ACTION ICON)
+                          const Icon(Icons.add_circle_outline, size: 26),
+                        ],
+                      ),
+                    ),
+
+                    // -------- BODY CONTENT (USING PADDING FOR TOP APPBAR) --------
+                    Positioned.fill(
+                      top: 60,
+                      child: Center(
                         child: Text(
                           "Page 2 (Front)",
                           style: TextStyle(fontSize: 30),
@@ -168,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
 
-                    // TEXT FIELD + BOTTOM ROW (fixed at bottom)
+                    // -------- TEXT FIELD + BOTTOM INPUT BAR --------
                     AnimatedPositioned(
                       duration: const Duration(milliseconds: 250),
                       curve: Curves.easeOut,
@@ -192,7 +231,6 @@ class _HomeScreenState extends State<HomeScreen>
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              // TextField
                               TextField(
                                 maxLines: 6,
                                 minLines: 1,
@@ -208,20 +246,15 @@ class _HomeScreenState extends State<HomeScreen>
                                 ),
                               ),
 
-                              // Bottom Row
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  // Left Side 2 Containers
                                   Row(
                                     children: [
                                       Container(
                                         height: 28,
                                         width: 68,
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 4,
-                                        ),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.circular(
@@ -229,6 +262,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           ),
                                           border: Border.all(
                                             color: Colors.grey,
+                                            width: 1,
                                           ),
                                         ),
                                         child: Row(
@@ -248,9 +282,6 @@ class _HomeScreenState extends State<HomeScreen>
                                       Container(
                                         height: 28,
                                         width: 68,
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 4,
-                                        ),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.circular(
@@ -258,6 +289,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           ),
                                           border: Border.all(
                                             color: Colors.grey,
+                                            width: 1,
                                           ),
                                         ),
                                         child: Row(
@@ -276,7 +308,6 @@ class _HomeScreenState extends State<HomeScreen>
                                     ],
                                   ),
 
-                                  // Right Side 2 Circular Icons
                                   Row(
                                     children: [
                                       Container(
@@ -315,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
 
-                    // SHADOW + TAP-TO-CLOSE (ENABLED ONLY WHEN DRAG > 0)
+                    // SHADOW WHEN PAGE 1 OPEN
                     if (drag > 0)
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
