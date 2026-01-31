@@ -46,23 +46,18 @@ class _HomeScreenState extends State<HomeScreen>
       backgroundColor: Colors.white, // ← scaffold background
       body: Stack(
         children: [
-          // ← PAGE 1
+          // PAGE 1
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
               final drag = controller.value; // ← drag value
               return Transform.translate(
                 offset: Offset(-maxSlide + (maxSlide * drag), 0),
-                // ← slide animation
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  // ← full width
                   height: MediaQuery.of(context).size.height,
-                  // ← full height
                   color: Colors.white,
-                  // ← background color
                   padding: const EdgeInsets.only(top: 40, left: 8, right: 20),
-                  // ← padding
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start, // ← alignment
                     children: [
@@ -80,12 +75,12 @@ class _HomeScreenState extends State<HomeScreen>
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              // ← section title
+                              // Section title
                               const SizedBox(height: 8),
 
                               // ← spacing
                               GestureDetector(
-                                // ← ITEM 1
+                                // ITEM 1
                                 behavior: HitTestBehavior.opaque,
                                 onTap: () {
                                   setState(() {
@@ -120,9 +115,9 @@ class _HomeScreenState extends State<HomeScreen>
 
                               const SizedBox(height: 8),
 
-                              // ← spacing
+                              // spacing
                               GestureDetector(
-                                // ← ITEM 2
+                                // ITEM 2
                                 behavior: HitTestBehavior.opaque,
                                 onTap: () {
                                   setState(() {
@@ -156,7 +151,6 @@ class _HomeScreenState extends State<HomeScreen>
                               ),
 
                               const SizedBox(height: 8),
-                              // ← spacing
                               const Text(
                                 "Tomorrow",
                                 style: TextStyle(
@@ -165,10 +159,9 @@ class _HomeScreenState extends State<HomeScreen>
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              // ← section title
+
                               const SizedBox(height: 8),
 
-                              // ← spacing
                               GestureDetector(
                                 // ← ITEM 3
                                 behavior: HitTestBehavior.opaque,
@@ -208,7 +201,6 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
 
                       GestureDetector(
-                        // ← bottom fixed row
                         onTap: () {},
                         child: Container(
                           height: 80,
@@ -241,23 +233,24 @@ class _HomeScreenState extends State<HomeScreen>
             },
           ),
 
-          // ← PAGE 2
+          // PAGE 2
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
-              final drag = controller.value; // ← drag value
-              if (drag > 0)
-                FocusScope.of(context).unfocus(); // ← close keyboard
+              final drag = controller.value;
+              if (drag > 0) {
+                FocusScope.of(context).unfocus();
+              }
 
               return Transform.translate(
-                offset: Offset(maxSlide * drag, 0), // ← slide animation
+                offset: Offset(maxSlide * drag, 0),
                 child: Stack(
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       color: Colors.white,
-                    ), // ← full page container
+                    ),
 
                     Container(
                       // ← top app bar
@@ -269,7 +262,6 @@ class _HomeScreenState extends State<HomeScreen>
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           GestureDetector(
-                            // ← menu icon
                             onTap: () {
                               controller.animateTo(
                                 1.0,
@@ -285,7 +277,6 @@ class _HomeScreenState extends State<HomeScreen>
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          // ← title
                           const Icon(Icons.add_circle_outline, size: 26),
                           // ← action icon
                         ],
@@ -293,7 +284,6 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
 
                     Positioned.fill(
-                      // ← body content
                       top: 60,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -302,7 +292,6 @@ class _HomeScreenState extends State<HomeScreen>
                             "assets/logo/deepseek_logo.png",
                             height: 42,
                           ),
-                          // ← logo
                           const SizedBox(height: 10),
                           const Text(
                             "How can I help you?",
@@ -312,13 +301,11 @@ class _HomeScreenState extends State<HomeScreen>
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          // ← heading
                         ],
                       ),
                     ),
 
                     AnimatedPositioned(
-                      // ← bottom input bar
                       duration: const Duration(milliseconds: 250),
                       curve: Curves.easeOut,
                       left: 16,
@@ -356,7 +343,6 @@ class _HomeScreenState extends State<HomeScreen>
                                 ),
                               ),
                               Row(
-                                // ← input actions
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -391,7 +377,6 @@ class _HomeScreenState extends State<HomeScreen>
                                       ),
                                       const SizedBox(width: 8),
                                       Container(
-                                        // ← mic button
                                         height: 28,
                                         width: 68,
                                         decoration: BoxDecoration(
@@ -422,7 +407,6 @@ class _HomeScreenState extends State<HomeScreen>
                                   Row(
                                     children: [
                                       Container(
-                                        // ← send button
                                         height: 30,
                                         width: 30,
                                         decoration: BoxDecoration(
@@ -435,7 +419,6 @@ class _HomeScreenState extends State<HomeScreen>
                                       ),
                                       const SizedBox(width: 8),
                                       Container(
-                                        // ← attachment button
                                         height: 30,
                                         width: 30,
                                         decoration: BoxDecoration(
@@ -459,7 +442,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
 
-                    if (drag > 0) // ← shadow overlay
+                    if (drag > 0)
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
                         onTap: closePage1,
