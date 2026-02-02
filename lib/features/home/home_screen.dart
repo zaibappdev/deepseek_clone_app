@@ -1,4 +1,7 @@
+import 'package:deepseek_clone_app/routes/navigation_services.dart';
 import 'package:flutter/material.dart';
+
+import '../../routes/app_paths.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -230,7 +233,9 @@ class _HomeScreenState extends State<HomeScreen>
 
                       // BOTTOM PROFILE ROW
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          NavigationServices.push(AppPaths.settings);
+                        },
                         child: Container(
                           height: 80,
                           padding: const EdgeInsets.symmetric(horizontal: 10),
