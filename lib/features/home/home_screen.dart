@@ -50,161 +50,190 @@ class _HomeScreenState extends State<HomeScreen>
           AnimatedBuilder(
             animation: controller,
             builder: (context, _) {
-              final drag = controller.value; // ← drag value
+              final drag = controller.value;
+
               return Transform.translate(
                 offset: Offset(-maxSlide + (maxSlide * drag), 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   color: Colors.white,
-                  padding: const EdgeInsets.only(top: 40, left: 8, right: 20),
+                  padding: const EdgeInsets.only(top: 40, left: 5, right: 20),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start, // ← alignment
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: SingleChildScrollView(
-                          // ← scrollable content
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Today",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              // Section title
-                              const SizedBox(height: 8),
-
-                              // ← spacing
-                              GestureDetector(
-                                // ITEM 1
-                                behavior: HitTestBehavior.opaque,
-                                onTap: () {
-                                  setState(() {
-                                    selectedIndex = 0;
-                                  });
-                                  controller.animateTo(
-                                    0.0,
-                                    curve: Curves.easeOutCubic,
-                                  );
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                    horizontal: 10,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: selectedIndex == 0
-                                        ? Colors.blue.withOpacity(0.10)
-                                        : Colors.transparent,
-                                    borderRadius: BorderRadius.circular(24),
-                                  ),
-                                  child: const Text(
-                                    "Item 1",
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 135),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  // same as item text
+                                  child: Text(
+                                    "Today",
                                     style: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.black,
+                                      fontSize: 15,
+                                      color: Colors.grey,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
-                              ),
+                                SizedBox(height: 10),
 
-                              const SizedBox(height: 8),
+                                buildItem(
+                                  title: "Junaid Jamel",
+                                  index: 0,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 0);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
 
-                              // spacing
-                              GestureDetector(
-                                // ITEM 2
-                                behavior: HitTestBehavior.opaque,
-                                onTap: () {
-                                  setState(() {
-                                    selectedIndex = 1;
-                                  });
-                                  controller.animateTo(
-                                    0.0,
-                                    curve: Curves.easeOutCubic,
-                                  );
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                    horizontal: 10,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: selectedIndex == 1
-                                        ? Colors.blue.withOpacity(0.10)
-                                        : Colors.transparent,
-                                    borderRadius: BorderRadius.circular(24),
-                                  ),
-                                  child: const Text(
-                                    "Item 2",
+                                buildItem(
+                                  title: "Threads",
+                                  index: 1,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 1);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
+
+                                buildItem(
+                                  title:
+                                      "Flutter Developers Community (moderated)",
+                                  index: 2,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 2);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
+
+                                const SizedBox(height: 15),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  // same as item text
+                                  child: Text(
+                                    "Tomorrow",
                                     style: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.black,
+                                      fontSize: 15,
+                                      color: Colors.grey,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
-                              ),
+                                SizedBox(height: 10),
 
-                              const SizedBox(height: 8),
-                              const Text(
-                                "Tomorrow",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w500,
+                                buildItem(
+                                  title: "About me",
+                                  index: 3,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 3);
+                                    controller.animateTo(0.0);
+                                  },
                                 ),
-                              ),
 
-                              const SizedBox(height: 8),
+                                const SizedBox(height: 15),
 
-                              GestureDetector(
-                                // ← ITEM 3
-                                behavior: HitTestBehavior.opaque,
-                                onTap: () {
-                                  setState(() {
-                                    selectedIndex = 2;
-                                  });
-                                  controller.animateTo(
-                                    0.0,
-                                    curve: Curves.easeOutCubic,
-                                  );
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                    horizontal: 10,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: selectedIndex == 2
-                                        ? Colors.blue.withOpacity(0.10)
-                                        : Colors.transparent,
-                                    borderRadius: BorderRadius.circular(24),
-                                  ),
-                                  child: const Text(
-                                    "Item 3",
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  // same as item text
+                                  child: Text(
+                                    "Dec 2025",
                                     style: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.black,
+                                      fontSize: 15,
+                                      color: Colors.grey,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                SizedBox(height: 10),
+
+                                buildItem(
+                                  title: "Mobile App Development Guidance…",
+                                  index: 4,
+                                  selectedIndex: selectedIndex,
+                                  highlightColor: Colors.blue.withOpacity(0.12),
+                                  onTap: () {
+                                    setState(() => selectedIndex = 4);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
+
+                                buildItem(
+                                  title: "Portfolio",
+                                  index: 5,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 5);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
+
+                                const SizedBox(height: 15),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  // same as item text
+                                  child: Text(
+                                    "Nov 2025",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+
+                                buildItem(
+                                  title: "Client",
+                                  index: 6,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 6);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
+
+                                buildItem(
+                                  title: "Creating AI Powered Mobile App C…",
+                                  index: 7,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 7);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
+
+                                buildItem(
+                                  title: "Zaibappdev Upwork",
+                                  index: 8,
+                                  selectedIndex: selectedIndex,
+                                  onTap: () {
+                                    setState(() => selectedIndex = 8);
+                                    controller.animateTo(0.0);
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
 
+                      // BOTTOM PROFILE ROW
                       GestureDetector(
                         onTap: () {},
                         child: Container(
                           height: 80,
-                          color: Colors.white,
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Row(
                             children: const [
                               CircleAvatar(
@@ -212,7 +241,6 @@ class _HomeScreenState extends State<HomeScreen>
                                 backgroundColor: Colors.blue,
                                 child: Icon(Icons.person, color: Colors.white),
                               ),
-                              // ← avatar
                               SizedBox(width: 10),
                               Text(
                                 "you*****673@gmail.com",
@@ -221,7 +249,6 @@ class _HomeScreenState extends State<HomeScreen>
                                   color: Colors.grey,
                                 ),
                               ),
-                              // ← email
                             ],
                           ),
                         ),
@@ -480,4 +507,53 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
   }
+}
+
+// Helper widget
+Widget buildItem({
+  required String title,
+  required int index,
+  required int selectedIndex,
+  Color highlightColor = const Color(0xFFE3EAFD),
+  required VoidCallback onTap,
+}) {
+  final bool isSelected = index == selectedIndex;
+
+  return GestureDetector(
+    behavior: HitTestBehavior.translucent,
+    onTap: onTap,
+    child: SizedBox(
+      height: 30,
+      width: double.infinity,
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          if (isSelected)
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: highlightColor,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+              ),
+            ),
+
+          // TEXT, ALWAYS ALIGNED LEFT
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
