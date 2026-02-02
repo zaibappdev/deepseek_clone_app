@@ -1,6 +1,5 @@
 import 'package:deepseek_clone_app/routes/navigation_services.dart';
 import 'package:flutter/material.dart';
-
 import '../../routes/app_paths.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  final TextEditingController messageCtrl = TextEditingController();
   late final AnimationController controller; // ← animation controller
   double maxSlide = 0;
   int selectedIndex = -1; // ← selected item index
@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
+    messageCtrl.dispose();
     controller.dispose(); // ← dispose controller
     super.dispose();
   }
@@ -39,6 +40,9 @@ class _HomeScreenState extends State<HomeScreen>
   void closePage1() {
     controller.animateTo(0.0, curve: Curves.easeOutCubic); // ← close page 1
   }
+
+  bool thinkActive = false;
+  bool searchActive = false;
 
   @override
   Widget build(BuildContext context) {
@@ -360,16 +364,18 @@ class _HomeScreenState extends State<HomeScreen>
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const TextField(
+                              TextField(
+                                controller: messageCtrl,
+                                onChanged: (v) => setState(() {}),
                                 maxLines: 6,
                                 minLines: 1,
                                 keyboardType: TextInputType.multiline,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   hintText: "Type a message or hold to speak",
                                   hintStyle: TextStyle(color: Colors.grey),
                                 ),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 16,
                                   color: Colors.black,
                                 ),
@@ -380,88 +386,160 @@ class _HomeScreenState extends State<HomeScreen>
                                 children: [
                                   Row(
                                     children: [
-                                      Container(
-                                        // ← camera button
-                                        height: 28,
-                                        width: 68,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(
-                                            14,
-                                          ),
-                                          border: Border.all(
-                                            color: Colors.grey,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: const [
-                                            Icon(Icons.camera_alt, size: 16),
-                                            SizedBox(width: 4),
-                                            Text(
-                                              "Think",
-                                              style: TextStyle(fontSize: 12),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            thinkActive = !thinkActive;
+                                          });
+                                        },
+                                        child: Container(
+                                          height: 28,
+                                          width: 68,
+                                          decoration: BoxDecoration(
+                                            color: thinkActive
+                                                ? Colors.blue.shade900
+                                                : Colors.white,
+                                            borderRadius: BorderRadius.circular(
+                                              14,
                                             ),
-                                          ],
+                                            border: Border.all(
+                                              color: Colors.grey,
+                                              width: 1,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.lightbulb_outline,
+                                                size: 16,
+                                                color: thinkActive
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                              ),
+                                              SizedBox(width: 4),
+                                              Text(
+                                                "Think",
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: thinkActive
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                      const SizedBox(width: 8),
-                                      Container(
-                                        height: 28,
-                                        width: 68,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(
-                                            14,
-                                          ),
-                                          border: Border.all(
-                                            color: Colors.grey,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: const [
-                                            Icon(Icons.mic, size: 16),
-                                            SizedBox(width: 4),
-                                            Text(
-                                              "Search",
-                                              style: TextStyle(fontSize: 12),
+
+                                      SizedBox(width: 8),
+
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            searchActive = !searchActive;
+                                          });
+                                        },
+                                        child: Container(
+                                          height: 28,
+                                          width: 68,
+                                          decoration: BoxDecoration(
+                                            color: searchActive
+                                                ? Colors.blue.shade900
+                                                : Colors.white,
+                                            borderRadius: BorderRadius.circular(
+                                              14,
                                             ),
-                                          ],
+                                            border: Border.all(
+                                              color: Colors.grey,
+                                              width: 1,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.language,
+                                                size: 16,
+                                                color: searchActive
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                              ),
+                                              SizedBox(width: 4),
+                                              Text(
+                                                "Search",
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: searchActive
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
                                   ),
+
                                   Row(
                                     children: [
-                                      Container(
-                                        height: 30,
-                                        width: 30,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: Colors.black,
+                                      GestureDetector(
+                                        onTap: () {
+                                          print("Add tapped");
+                                          setState(() {});
+                                        },
+                                        child: Container(
+                                          height: 30,
+                                          width: 30,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color: Colors.black,
+                                            ),
+                                            color: Colors.transparent,
+                                          ),
+                                          child: const Icon(
+                                            Icons.add,
+                                            size: 20,
                                           ),
                                         ),
-                                        child: const Icon(Icons.send, size: 16),
                                       ),
                                       const SizedBox(width: 8),
-                                      Container(
-                                        height: 30,
-                                        width: 30,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: Colors.black,
+
+                                      GestureDetector(
+                                        onTap: () {
+                                          print("Main mic/arrow tapped");
+                                          setState(() {});
+                                        },
+                                        child: Container(
+                                          height: 30,
+                                          width: 30,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: messageCtrl.text.isEmpty
+                                                ? Colors.transparent
+                                                : Colors.blue.shade900,
+                                            border: messageCtrl.text.isEmpty
+                                                ? Border.all(
+                                                    color: Colors.black,
+                                                  )
+                                                : null,
                                           ),
-                                        ),
-                                        child: const Icon(
-                                          Icons.attachment,
-                                          size: 16,
+                                          child: Icon(
+                                            messageCtrl.text.isEmpty
+                                                ? Icons
+                                                      .record_voice_over_outlined
+                                                : Icons.arrow_upward_outlined,
+                                            size: messageCtrl.text.isEmpty
+                                                ? 16
+                                                : 22,
+                                            color: messageCtrl.text.isEmpty
+                                                ? Colors.black
+                                                : Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ],

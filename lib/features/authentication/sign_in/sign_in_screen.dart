@@ -75,7 +75,9 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
 
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                NavigationServices.go(AppPaths.resetPassword);
+              },
               child: const Text(
                 "Forget Password?",
                 style: TextStyle(

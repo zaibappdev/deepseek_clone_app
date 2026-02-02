@@ -308,7 +308,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
             SizedBox(height: 20),
             Center(
-              child: Text("AI-generated, for refrence only. Use legally."),
+              child: Text("AI-generated, for reference only. Use legally."),
             ),
           ],
         ),
