@@ -64,9 +64,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   const SizedBox(height: 12),
 
-                  ElevatedButtonWidget(text: "Sign Up", onTap: () {
-                    NavigationServices.push(AppPaths.signUp);
-                  }),
+                  ElevatedButtonWidget(
+                    text: "Sign Up",
+                    onTap: () {
+                      NavigationServices.push(AppPaths.signUp);
+                    },
+                  ),
                   const SizedBox(height: 18),
 
                   Row(
